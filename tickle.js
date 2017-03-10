@@ -2,6 +2,7 @@ function update() {
   var text = this.responseText;
   var span = document.createElement('span');
   span.textContent = text;
+  while (document.body.firstChild) document.body.removeChild(document.body.firstChild);
   document.body.appendChild(span);
 }
 
