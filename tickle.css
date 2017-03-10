@@ -1,5 +1,8 @@
 span {
-  color: red;
+  font-family: Helvetica, Arial;
+  font-size: 2em;
+  text-align: center;
+  color: white;
   display: block;
   position: fixed;
   top: 50%;
