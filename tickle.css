@@ -2,6 +2,7 @@ span {
   font-family: Helvetica, Arial;
   font-size: 2em;
   text-align: center;
+  text-shadow: red 0em 0em 1em;
   color: white;
   display: block;
   position: fixed;
