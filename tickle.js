@@ -1,6 +1,5 @@
 function utter(text) {
   speechSynthesis.speak(new SpeechSynthesisUtterance(text));
-  throw Error("wwooo");
 }
 
 function update(element, response) {
