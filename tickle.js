@@ -3,9 +3,8 @@ function utter(text) {
 }
 
 function evict(element) {
-  var parent = element.parentElement;
   element.className = "removing";
-  element.addEventListener("transitionend", parent.removeChild.bind(parent, element));
+  element.addEventListener("transitionend", element.remove.bind(element));
 }
 
 function mark(element) {
@@ -24,10 +23,10 @@ function update(element, response) {
 
 function main() {
   var len = Math.sin(Date.now() / 3000) * 40 + 50;
-  var order = Math.sin(Date.now() / 1700) * 4 + 8;  
+  var order = Math.sin(Date.now() / 1700) * 8 + 11;  
   var xhr = new XMLHttpRequest();
   xhr.addEventListener("load", update.bind(null, document.body));
-  xhr.addEventListener("load", setTimeout.bind(window, main, 100 + 100 * len));
+  xhr.addEventListener("load", setTimeout.bind(window, main, 120 * len - 100));
   xhr.open("GET", "tickle.php?l=" + len);
   xhr.send();
 }
