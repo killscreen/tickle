@@ -1,10 +1,11 @@
-function utter(text) {
+function utter(text, callback) {
   var utterance = new SpeechSynthesisUtterance(text.split('\n').join('. '));
   var voices = speechSynthesis.getVoices();
   utterance.pitch = Math.sin(Date.now() / 600) + 1;
   utterance.rate = Math.sin(Date.now() / 3400) + 1.25;
   utterance.volume = Math.sin(Date.now() / 9000) / 2 + 1;
   utterance.voice = voices[Math.floor(Date.now() / 60000) % voices.length];
+  utterance.onend = callback;
   speechSynthesis.speak(utterance);
 }
 
@@ -28,9 +29,8 @@ function update(element, response) {
   var div = document.createElement('div');
   element.appendChild(div);
   text.split('\n').forEach(append.bind(div));
-  setTimeout(utter.bind(null, text), 0);
+  utter(text, evict.bind(null, div));
   setTimeout(mark.bind(null, div), 100);
-  setTimeout(evict.bind(null, div), 100 * text.length);
 }
 
 function main() {
