@@ -36,7 +36,7 @@ function update(callback, element, response) {
 
 function main() {
   var len = Math.sin(Date.now() / 3000) * 20 + 28;
-  var order = Math.sin(Date.now() / 1700) * 24 + 26;  
+  var order = Math.sin(Date.now() / 1700) * 24 + 28;  
   var xhr = new XMLHttpRequest();
   xhr.addEventListener("load", update.bind(null, main, document.body));
   xhr.open("GET", "tickle.php?l=" + len);
