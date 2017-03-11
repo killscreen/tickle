@@ -4,7 +4,6 @@ function utter(text, callback) {
   utterance.pitch = Math.sin(Date.now() / 600) / 2 + 0.75;
   utterance.rate = Math.sin(Date.now() / 3400) / 2 + 1;
   utterance.volume = Math.sin(Date.now() / 9000) / 2 + 1;
-  utterance.voice = voices[Math.floor(Date.now() / 60000) % voices.length];
   utterance.onend = callback;
   speechSynthesis.speak(utterance);
 }
