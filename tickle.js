@@ -24,9 +24,10 @@ function update(element, response) {
 
 function main() {
   var len = Math.sin(Date.now() / 3000) * 40 + 50;
+  var order = Math.sin(Date.now() / 1700) * 4 + 8;  
   var xhr = new XMLHttpRequest();
   xhr.addEventListener("load", update.bind(null, document.body));
-  xhr.addEventListener("load", setTimeout.bind(window, main, 120 * len));
+  xhr.addEventListener("load", setTimeout.bind(window, main, 100 + 100 * len));
   xhr.open("GET", "tickle.php?l=" + len);
   xhr.send();
 }
